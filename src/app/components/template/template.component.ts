@@ -14,9 +14,9 @@ import { NgForm } from '@angular/forms';
 export class TemplateComponent {
 
   usuario: object = {
-    nombre: "Dario",
-    apellido: "Zubaray",
-    email: "dzubaray@gmail.com"
+    nombre: null,
+    apellido: null,
+    email: null
   };
   constructor() { }
 
