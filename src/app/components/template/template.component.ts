@@ -16,8 +16,16 @@ export class TemplateComponent {
   usuario: object = {
     nombre: null,
     apellido: null,
-    email: null
+    email: null,
+    pais: null
   };
+
+  paises: object = [
+    {codigo: "ARG", nombre: "Argentina"},
+    {codigo: "CRI", nombre: "Costa Rica"},
+    {codigo: "ESP", nombre: "España"},
+    {codigo: "USA", nombre: "Estados Unidos"}
+  ]
   constructor() { }
 
   guardar( formulario: NgForm) {
