@@ -33,7 +33,7 @@
                type="text"
                placeholder="Apellido"
                name="apellido"
-               [ngModel]="usuario.apellido"
+               [(ngModel)]="usuario.apellido"
                required
                #apellido="ngModel">
          <div *ngIf="apellido.errors?.required"  class="form-control-feedback">
@@ -52,7 +52,7 @@
              type="email"
              placeholder="Correo electrónico"
              name="email"
-             [ngModel]="usuario.email"
+             [(ngModel)]="usuario.email"
              required
              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
              #email="ngModel">
@@ -68,13 +68,49 @@
   <div class="form-group row">
     <label class="col-2 col-form-label">Pais</label>
     <div class="col-md-8">
-      <select class="form-control" [ngModel]="usuario.pais" name="pais">
+      <select class="form-control" [(ngModel)]="usuario.pais" name="pais">
         <option value="0" selected>Seleccione un país</option>
         <option *ngFor="let pais of paises" [value]="pais.codigo"> {{ pais.nombre }} </option>
       </select>
     </div>
   </div>
 
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Sexo</label>
+    <div class="col-md-8">
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input [(ngModel)]="usuario.sexo"
+               type="radio"
+               id="formRadioInline0"
+               name="sexo"
+               value="masculino"
+               class="form-control-input radiobotones">
+        <label class="custom-control-label" for="formRadioInline0">Masculino</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input [(ngModel)]="usuario.sexo"
+               type="radio"
+               id="formRadioInline1"
+               name="sexo"
+               value="femenino"
+               class="form-control-input radiobotones">
+        <label class="custom-control-label" for="formRadioInline1">Femenino</label>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input [(ngModel)]="usuario.sexo"
+               type="radio"
+               id="formRadioInline2"
+               name="sexo"
+               value="noIndicado"
+               class="form-control-input radiobotones">
+        <label class="custom-control-label" for="formRadioInline2">No indicado</label>
+      </div>
+
+    </div>
+  </div>
 
   <div class="form-group row">
     <label class="col-2 col-form-label">&nbsp;</label>
@@ -86,3 +122,9 @@
   </div>
 
 </form>
+
+
+<pre>
+
+  {{ usuario | json }}
+</pre>

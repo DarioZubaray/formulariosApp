@@ -9,6 +9,9 @@ import { NgForm } from '@angular/forms';
       .ng-invalid.ng-touched:not(form) {
         border: 1px solid crimson;
       }
+      .radiobotones{
+        margin: 6px;
+      }
     `]
 })
 export class TemplateComponent {
@@ -17,7 +20,8 @@ export class TemplateComponent {
     nombre: null,
     apellido: null,
     email: null,
-    pais: null
+    pais: "0",
+    sexo: null
   };
 
   paises: object = [
