@@ -21,7 +21,8 @@ export class TemplateComponent {
     apellido: null,
     email: null,
     pais: "0",
-    sexo: null
+    sexo: null,
+    acepta: false
   };
 
   paises: object = [
@@ -29,7 +30,10 @@ export class TemplateComponent {
     {codigo: "CRI", nombre: "Costa Rica"},
     {codigo: "ESP", nombre: "España"},
     {codigo: "USA", nombre: "Estados Unidos"}
-  ]
+  ];
+
+  sexos: string[] = ["Masculino", "Femenino", "No Indicado"];
+
   constructor() { }
 
   guardar( formulario: NgForm) {
