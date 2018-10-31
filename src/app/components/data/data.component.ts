@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms'
 
 @Component({
   selector: 'app-data',
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DataComponent implements OnInit {
 
-  constructor() { }
+  forma : FormGroup;
+
+  constructor() {
+    this.forma = new FormGroup({
+      'nombre': new FormControl('Dario'),
+      'appelido': new FormControl(),
+      'correo': new FormControl()
+    });
+  }
 
   ngOnInit() {
   }
 
+  guardarCambios(){
+    console.log( this.forma.value );
+  }
 }
