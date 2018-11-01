@@ -12,7 +12,10 @@ export class DataComponent implements OnInit {
 
   constructor() {
     this.forma = new FormGroup({
-      'nombre': new FormControl( 'Dario', Validators.required ),
+      'nombre': new FormControl( 'Dario', [
+        Validators.required,
+        Validators.minLength(3)]
+      ),
       'apellido': new FormControl( '', Validators.required ),
       'correo': new FormControl( '', [
         Validators.required,
