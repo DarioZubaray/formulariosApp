@@ -43,5 +43,13 @@ export class DataComponent implements OnInit {
   guardarCambios(){
     console.log( this.forma.value );
     console.log( this.forma );
+
+    this.forma.reset({
+      nombreCompleto: {
+        nombre: "",
+        apellido: ""
+      },
+      correo: ""
+    });
   }
 }
