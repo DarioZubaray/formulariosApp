@@ -27,7 +27,10 @@ export class DataComponent implements OnInit {
           Validators.required,
           Validators.minLength(3)]
         ),
-        'apellido': new FormControl( '', Validators.required )
+        'apellido': new FormControl( '', [
+          Validators.required,
+          this.noHerrera
+        ])
       }),
       'correo': new FormControl( '', [
         Validators.required,
@@ -55,6 +58,16 @@ export class DataComponent implements OnInit {
       },
       correo: ""
     });
+  }
+
+  noHerrera( control: FormControl ): { [s:string]: boolean } {
+
+    if( control.value === 'herrera' ) {
+      return {
+        noHerrera: true
+      }
+    }
+    return null;
   }
 
   agregarPasatiempo(){
