@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms'
+import { Observable } from  'rxjs/Rx';
 
 @Component({
   selector: 'app-data',
@@ -39,6 +40,7 @@ export class DataComponent implements OnInit {
       'pasatiempos': new FormArray([
         new FormControl('', Validators.required)
       ]),
+      'username': new FormControl('', Validators.required, this.exiteUsuario),
       'password1': new FormControl('', Validators.required),
       'password2': new FormControl()
     });
@@ -76,6 +78,21 @@ export class DataComponent implements OnInit {
       }
     }
     return null;
+  }
+
+  exiteUsuario( control: FormControl ): Promise<any>|Observable<any> {
+    let promesa = new Promise(
+      ( resolve, reject )=>{
+        setTimeout( ()=>{
+          if( control.value === 'tunick' ) {
+            resolve( { existe:true } )
+          } else {
+            resolve( null );
+          }
+        }, 3000)
+      }
+    );
+    return promesa;
   }
 
   noHerrera( control: FormControl ): { [s:string]: boolean } {
