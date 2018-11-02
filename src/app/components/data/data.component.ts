@@ -50,6 +50,14 @@ export class DataComponent implements OnInit {
     ]);
 
     // this.forma.setValue( this.usuario );
+
+    //subscribirse a todo el formulario
+    // this.forma.valueChanges.subscribe( data => console.log( data ));
+
+    //subscribirse a un campo
+    this.forma.controls['username'].valueChanges.subscribe( data => console.log( data ));
+    //subcribirse a su estado
+    this.forma.controls['username'].statusChanges.subscribe( data => console.log( data ));
   }
 
   ngOnInit() {
